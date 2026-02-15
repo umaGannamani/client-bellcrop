@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# Bellcorp Event Management – Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend application for the Bellcorp Event Management System.
 
-## Available Scripts
+Live Links:
+https://server-bellcrop-backend.onrender.com/
 
-In the project directory, you can run:
+https://client-bellcrop.vercel.app/
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js
+- React Router
+- React Icons
+- Context API (Authentication)
+- Fetch API
+- Render / Vercel (Deployment)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##  Project Structure
 
-### `npm run build`
+```
+bellcorp-event-app/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── context/
+│   ├── App.js
+│   └── index.js
+│
+├── package.json
+└── README.md
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##  Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- View all events
+- Search events (with clear icon)
+- View event details
+- Register for events
+- Seat availability counter (Available / Total)
+- Sold Out indicator
+- Cancel registration
+- Dashboard:
+  - Upcoming Events
+  - Past Events
+- Protected routes
+- Back button navigation
+- JWT authentication
+- Responsive UI
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+##  Backend Connection
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The frontend connects to:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+https://server-bellcrop-backend.onrender.com
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Example API call:
 
-## Learn More
+```js
+fetch("https://server-bellcrop-backend.onrender.com/api/events")
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+##  Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Clone the repository:
 
-### Analyzing the Bundle Size
+```bash
+git clone https://github.com/umaGannamani/client-bellcrop.git
+cd bellcorp-event-app
+cd client
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Install dependencies:
 
-### Making a Progressive Web App
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Run locally:
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+App runs on:
 
-### Deployment
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+##  Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `/` → Home (Explore Events + Search)
+- `/events` → Registered Events
+- `/events/:id` → Event Details
+- `/dashboard` → Upcoming & Past Events
+- `/login`
+- `/register`
+
+---
+
+##  Seat Availability Logic
+
+- Displays: `availableSeats / capacity`
+- When user registers → seats decrease
+- When user cancels → seats increase
+- When `availableSeats === 0` → "Not Available" shown
+
+---
+
+##  Authentication
+
+- JWT token stored in localStorage
+- Protected routes for:
+  - Dashboard
+  - Registered Events
+  - Event Registration
+
+---
+
+##  Deployment
+
+Frontend can be deployed on:
+
+- Render
+- Vercel (used)
+- Netlify
+
+After deployment, update CORS in backend to allow frontend URL.
+
+---
+
+##  Author
+
+Bellcorp Event Management Project

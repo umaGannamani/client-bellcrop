@@ -7,7 +7,7 @@ function Home() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/events")
+    fetch("https://server-bellcrop-backend.onrender.com/api/events")
       .then(res => res.json())
       .then(data => setEvents(data));
   }, []);

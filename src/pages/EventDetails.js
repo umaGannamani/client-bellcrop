@@ -10,7 +10,7 @@ function EventDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/events/${id}`)
+    fetch(`https://server-bellcrop-backend.onrender.com/api/events/${id}`)
       .then(res => res.json())
       .then(data => {
         setEvent(data);
@@ -21,7 +21,7 @@ function EventDetails() {
   const handleRegister = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/registrations/${id}`,
+        `https://server-bellcrop-backend.onrender.com/api/registrations/${id}`,
         {
           method: "POST",
           headers: {

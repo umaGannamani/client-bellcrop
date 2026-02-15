@@ -10,7 +10,7 @@ function Events() {
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://localhost:5000/api/registrations/my-events", {
+    fetch("https://server-bellcrop-backend.onrender.com/api/registrations/my-events", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -21,7 +21,7 @@ function Events() {
 
   const handleCancel = async (eventId) => {
     const res = await fetch(
-      `http://localhost:5000/api/registrations/${eventId}`,
+      `https://server-bellcrop-backend.onrender.com/api/registrations/${eventId}`,
       {
         method: "DELETE",
         headers: {

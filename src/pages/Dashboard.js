@@ -9,7 +9,7 @@ function Dashboard() {
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://localhost:5000/api/registrations/my-events", {
+    fetch("https://server-bellcrop-backend.onrender.com/api/registrations/my-events", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
